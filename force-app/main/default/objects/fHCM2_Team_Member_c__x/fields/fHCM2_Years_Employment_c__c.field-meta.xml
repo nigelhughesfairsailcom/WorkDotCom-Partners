@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>fHCM2_Years_Employment_c__c</fullName>
+    <externalDeveloperName>fHCM2__Years_Employment__c</externalDeveloperName>
+    <externalId>false</externalId>
+    <inlineHelpText>Number of years service</inlineHelpText>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>Years Employment</label>
+    <precision>18</precision>
+    <readOnlyProxy>true</readOnlyProxy>
+    <required>false</required>
+    <scale>0</scale>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

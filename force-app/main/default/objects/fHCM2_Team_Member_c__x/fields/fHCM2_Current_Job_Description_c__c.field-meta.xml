@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>fHCM2_Current_Job_Description_c__c</fullName>
+    <externalDeveloperName>fHCM2__Current_Job_Description__c</externalDeveloperName>
+    <externalId>false</externalId>
+    <inlineHelpText>The most recent completed job description</inlineHelpText>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>Current Job Description</label>
+    <length>18</length>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

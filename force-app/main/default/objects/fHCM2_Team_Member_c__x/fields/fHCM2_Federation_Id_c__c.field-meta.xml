@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>fHCM2_Federation_Id_c__c</fullName>
+    <externalDeveloperName>fHCM2__Federation_Id__c</externalDeveloperName>
+    <externalId>false</externalId>
+    <inlineHelpText>Single sign on federation id</inlineHelpText>
+    <isFilteringDisabled>true</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>true</isSortingDisabled>
+    <label>Federation Id</label>
+    <length>512</length>
+    <type>LongTextArea</type>
+    <visibleLines>10</visibleLines>
+</CustomField>

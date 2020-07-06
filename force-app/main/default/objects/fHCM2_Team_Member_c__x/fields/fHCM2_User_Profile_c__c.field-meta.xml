@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>fHCM2_User_Profile_c__c</fullName>
+    <externalDeveloperName>fHCM2__User_Profile__c</externalDeveloperName>
+    <externalId>false</externalId>
+    <inlineHelpText>Name of user profile for this team member.  User is created when saving a team member without a current user linked.</inlineHelpText>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>User Profile</label>
+    <length>80</length>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

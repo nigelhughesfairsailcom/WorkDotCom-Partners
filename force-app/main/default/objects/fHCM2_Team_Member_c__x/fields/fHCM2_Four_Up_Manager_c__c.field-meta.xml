@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>fHCM2_Four_Up_Manager_c__c</fullName>
+    <externalDeveloperName>fHCM2__Four_Up_Manager__c</externalDeveloperName>
+    <externalId>false</externalId>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>Four-Up Manager</label>
+    <length>1300</length>
+    <readOnlyProxy>true</readOnlyProxy>
+    <type>LongTextArea</type>
+    <visibleLines>10</visibleLines>
+</CustomField>

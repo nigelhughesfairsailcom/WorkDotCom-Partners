@@ -1,4 +1,4 @@
-sfdx force:org:create -f config/project-scratch-def.json  -a WDCScratchOrg -s -d 7
+sfdx force:org:create -f config/project-scratch-def.json  -a workdc_poc_wdc -s -d 30
 
 
 #Command Center managed package
@@ -60,4 +60,4 @@ sfdx force:apex:execute -f ./dx-utils/apex-scripts/convertData.apex
 #Extra steps like resetting password for scartch org (if needed)
 sfdx force:apex:execute -f ./dx-utils/apex-scripts/demo-setup.apex
 
-sfdx force:org:open 
+#sfdx force:org:open 

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>fHCM2_Next_Job_Description_Date_c__c</fullName>
+    <externalDeveloperName>fHCM2__Next_Job_Description_Date__c</externalDeveloperName>
+    <externalId>false</externalId>
+    <inlineHelpText>Date of next job description review/check</inlineHelpText>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>Next Job Description Date</label>
+    <required>false</required>
+    <type>Date</type>
+</CustomField>

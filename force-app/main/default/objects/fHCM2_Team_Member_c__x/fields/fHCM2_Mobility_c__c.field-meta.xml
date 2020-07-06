@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>fHCM2_Mobility_c__c</fullName>
+    <externalDeveloperName>fHCM2__Mobility__c</externalDeveloperName>
+    <externalId>false</externalId>
+    <inlineHelpText>Short statement on potential mobility of the team member if offered alternative positions</inlineHelpText>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>Mobility</label>
+    <required>false</required>
+    <type>TextArea</type>
+</CustomField>

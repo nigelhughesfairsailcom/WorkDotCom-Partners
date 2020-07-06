@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <assignments>
+        <name>Set_Active_Employee</name>
+        <label>Set Active Employee</label>
+        <locationX>476</locationX>
+        <locationY>99</locationY>
+        <assignmentItems>
+            <assignToReference>WDC_Employee_Status</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Active</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Set_Default_Employee</name>
+        <label>Set Default Employee</label>
+        <locationX>187</locationX>
+        <locationY>682</locationY>
+        <assignmentItems>
+            <assignToReference>WDC_Employee_Status</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Active</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Set_Leave_Employee</name>
+        <label>Set Leave Employee</label>
+        <locationX>475</locationX>
+        <locationY>314</locationY>
+        <assignmentItems>
+            <assignToReference>WDC_Employee_Status</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Leave</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Set_Terminated_Employee</name>
+        <label>Set 	Terminated Employee</label>
+        <locationX>475</locationX>
+        <locationY>502</locationY>
+        <assignmentItems>
+            <assignToReference>WDC_Employee_Status</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Terminated</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <decisions>
+        <name>Is_Active</name>
+        <label>Is Active</label>
+        <locationX>183</locationX>
+        <locationY>99</locationY>
+        <defaultConnector>
+            <targetReference>Is_Leave</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Next</defaultConnectorLabel>
+        <rules>
+            <name>Active_Employee</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>SP_Employee_Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Active Employee</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>SP_Employee_Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Temporary Staff</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Active_Employee</targetReference>
+            </connector>
+            <label>Active Employee</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Is_Leave</name>
+        <label>Is Leave</label>
+        <locationX>180</locationX>
+        <locationY>315</locationY>
+        <defaultConnector>
+            <targetReference>Is_Terminated</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Next</defaultConnectorLabel>
+        <rules>
+            <name>Leave_Employee</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>SP_Employee_Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>On Leave Paid</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>SP_Employee_Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>On Leave Unpaid</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Leave_Employee</targetReference>
+            </connector>
+            <label>Leave Employee</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Is_Terminated</name>
+        <label>Is Terminated</label>
+        <locationX>180</locationX>
+        <locationY>505</locationY>
+        <defaultConnector>
+            <targetReference>Set_Default_Employee</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Next</defaultConnectorLabel>
+        <rules>
+            <name>Terminated_Employee</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>SP_Employee_Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Laid Off</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>SP_Employee_Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Left</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Terminated_Employee</targetReference>
+            </connector>
+            <label>Terminated Employee</label>
+        </rules>
+    </decisions>
+    <interviewLabel>Employee Status Map {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Employee Status Map</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>46</locationX>
+        <locationY>43</locationY>
+        <connector>
+            <targetReference>Is_Active</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>SP_Employee_Status</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>WDC_Employee_Status</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>
