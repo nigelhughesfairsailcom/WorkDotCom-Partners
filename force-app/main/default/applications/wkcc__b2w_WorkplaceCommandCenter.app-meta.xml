@@ -21,6 +21,7 @@
         <type>Flexipage</type>
         <profile>Admin</profile>
     </profileActionOverrides>
+    <subscriberTabs>standard-Employee</subscriberTabs>
     <tabs>standard-home</tabs>
     <tabs>wkcc__b2w_CommandCenterSettings</tabs>
     <tabs>wkcc__CommandCenterMapping__c</tabs>

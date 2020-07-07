@@ -1,3 +1,9 @@
+# Notes
+
+$ sfdx force:source:retrieve -m "Flow" -u workdc_poc_wdc
+$ sfdx force:source:retrieve -m "ExternalDataSource" -u workdc_poc_wdc
+
+
 # Work.com and Command Center
 Where can I get more information about work.com?
 
@@ -14,7 +20,7 @@ This repo can quickly get you started with Work.com and Command Center managed p
 ## How can I use this repo?
 
 1. You can do this locally
-   - Clone this project locally: 
+   - Clone this project locally:
    - git clone https://github.com/forcedotcom/WorkDotCom-Partners.git
      - Run orgInit.sh file: Check https://github.com/forcedotcom/WorkDotCom-Partners/blob/master/orgInit.sh for commands
      - ./orgInit.sh

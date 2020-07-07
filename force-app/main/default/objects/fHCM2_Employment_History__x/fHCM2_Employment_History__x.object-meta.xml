@@ -113,14 +113,14 @@
         <type>Default</type>
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
-    <deploymentStatus>Deployed</deploymentStatus>
+    <deploymentStatus>InDevelopment</deploymentStatus>
     <enableFeeds>false</enableFeeds>
     <enableLicensing>false</enableLicensing>
     <enableReports>false</enableReports>
     <enableSearch>true</enableSearch>
     <externalDataSource>workdc_poc_sp</externalDataSource>
-    <externalName>fHCM2__Team_Member__c</externalName>
-    <label>SP Team Member</label>
-    <pluralLabel>SP Team Members</pluralLabel>
+    <externalName>fHCM2__Employment__History</externalName>
+    <label>SP Employment Record</label>
+    <pluralLabel>SP Employment Records</pluralLabel>
     <searchLayouts/>
 </CustomObject>
