@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Missing_Unique_Id_email</name>
+        <label>Missing Unique Id email</label>
+        <locationX>152</locationX>
+        <locationY>390</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <stringValue>nigel.hughes@sage.com</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>Missing Id</stringValue>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <decisions>
+        <name>Check_Unique_Id</name>
+        <label>Check Unique Id</label>
+        <locationX>273</locationX>
+        <locationY>186</locationY>
+        <defaultConnector>
+            <targetReference>Missing_Unique_Id_email</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No Unique Id</defaultConnectorLabel>
+        <rules>
+            <name>Has_Unique_Id</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.fHCM2_Unique_Id_c__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Team_Member_Sync</targetReference>
+            </connector>
+            <label>Has Unique Id</label>
+        </rules>
+    </decisions>
+    <interviewLabel>SP Team Member Sync Auto {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Schedule SP Team Member Sync Auto</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>94</locationX>
+        <locationY>70</locationY>
+        <connector>
+            <targetReference>Check_Unique_Id</targetReference>
+        </connector>
+        <object>fHCM2_Team_Member_c__x</object>
+        <schedule>
+            <frequency>Once</frequency>
+            <startDate>2020-07-07</startDate>
+            <startTime>13:30:00.000Z</startTime>
+        </schedule>
+        <triggerType>Scheduled</triggerType>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <name>Team_Member_Sync</name>
+        <label>Team Member Sync</label>
+        <locationX>400</locationX>
+        <locationY>395</locationY>
+        <flowName>SP_Team_Member_Sync_Auto</flowName>
+        <inputAssignments>
+            <name>Team_Member_Id</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+</Flow>
