@@ -1,5 +1,5 @@
 # org_builder.py
-__version__ = '0.0.1'
+__version__ = '0.0.2'
 
 import argparse
 import logging
@@ -23,8 +23,11 @@ logger = logging.getLogger()
 
 # Config
 #
-SFDX_CMD = "sfdx.cmd"
-SLEEP_SEC = 120
+
+# Default duration in days
+DURATION = 10
+# Default Devhub
+DEVHUB = "my-dev-hub-org"
 # List of managed package Ids to install into the Org.
 PACKAGE_IDS = ["04t5w000005dfhvAAA", "04t5w000005au3o", "04t5w000004Lpu3", "04t4S000000hXF3"]
 # List of metadata source folders (SRC_FOLDERS = ["force-app"])
@@ -47,6 +50,7 @@ P_SETS = [
 #
 #
 
+
 parser = argparse.ArgumentParser(
     prog='org_builder',
     description='''
@@ -59,21 +63,21 @@ def setup_args():
 
     parser.add_argument(
         '-a', '--alias',
-        help='Scratch Org user alias'
+        help="Scratch Org user alias"
     )
     parser.add_argument(
         '-d', '--duration',
-        help='Number of days org will last [1..30]. Default: 10',
-        default=10
+        help=f"Number of days org will last [1..30]. Default: {DURATION}",
+        default=DURATION
     )
     parser.add_argument(
         '-v', '--devhub',
-        help='Target dev hub username or alias. Default: hub-org',
-        default='hub-org'
+        help=f"Target dev hub username or alias. Default: {DEVHUB}",
+        default=DEVHUB
     )
     parser.add_argument(
         '--debug',
-        help='Turn on debug messages',
+        help="Turn on debug messages",
         action='store_true'
     )
 
@@ -98,7 +102,7 @@ def check_install(org_alias, status_id):
 
 def check_org(org_alias):
 
-    py_obj = sfdx.check_org(org_alias)
+    py_obj = sfdx.org_list()
 
     scratch_orgs = py_obj['result']['scratchOrgs']
     for org in scratch_orgs:

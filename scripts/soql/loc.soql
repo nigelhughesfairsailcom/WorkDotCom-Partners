@@ -1,0 +1,11 @@
+/**
+ * @description       : 
+ * @author            : nigel.hughes@sage.com
+ * @group             : 
+ * @last modified on  : 07-14-2020
+ * @last modified by  : nigel.hughes@sage.com
+ * Modifications Log 
+ * Ver   Date         Author                  Modification
+ * 1.0   07-14-2020   nigel.hughes@sage.com   Initial Version
+**/
+SELECT Id,LastReferencedDate,Location,LocationLevel,LocationType,Name,ParentLocationId,RootLocationId,SP_Work_Location_Id__c,VisitorAddressId,wkcc__Level2LocationId__c,wkcc__LocationPath__c,wkcc__StatusLastUpdated__c,wkcc__Status__c FROM Location

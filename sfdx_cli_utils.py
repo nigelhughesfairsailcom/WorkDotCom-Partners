@@ -17,6 +17,7 @@ os.chdir(dir_path)
 #
 SFDX_CMD = "sfdx.cmd"
 SLEEP_SEC = 120
+SCRATCH_DEF = "config/project-scratch-def.json"
 #
 #
 
@@ -62,22 +63,6 @@ def check_install(org_alias, status_id):
     return parse_output(out)
 
 
-def check_org(org_alias):
-    logging.debug(f"check_org({org_alias})")
-
-    out = subprocess.run(
-        [
-            SFDX_CMD,
-            "force:org:list",
-            "--all",
-            "--json"
-        ],
-        capture_output=True
-    )
-
-    return parse_output(out)
-
-
 def create_sratch_org(org_alias, duration, devhub):
     logging.debug(f"create_sratch_org({org_alias}, {duration}, {devhub})")
 
@@ -86,7 +71,7 @@ def create_sratch_org(org_alias, duration, devhub):
             SFDX_CMD,
             "force:org:create",
             "-f",
-            f"{dir_path}/config/project-scratch-def.json",
+            f"{SCRATCH_DEF}",
             "-s",
             "-d",
             f"{duration}",
@@ -174,6 +159,39 @@ def install_source(org_alias, src_folder):
             "-g",
             "--loglevel",
             "fatal",
+            "--json"
+        ],
+        capture_output=True
+    )
+
+    return parse_output(out)
+
+
+def org_list():
+    logging.debug(f"org_list()")
+
+    out = subprocess.run(
+        [
+            SFDX_CMD,
+            "force:org:list",
+            "--all",
+            "--json"
+        ],
+        capture_output=True
+    )
+
+    return parse_output(out)
+
+
+def org_open(org_user):
+    logging.debug(f"open_org({org_user})")
+
+    out = subprocess.run(
+        [
+            SFDX_CMD,
+            "force:org:open",
+            "-u",
+            f"{org_user}",
             "--json"
         ],
         capture_output=True
